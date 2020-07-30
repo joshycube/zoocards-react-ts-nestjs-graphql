@@ -1,0 +1,12 @@
+{
+  "name": "zoocardsbe",
+  "version": "1.0.0",
+  "description": "Backend for Zoo cards",
+  "main": "index.js",
+  "author": "joshy",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/api"
+  ]
+}

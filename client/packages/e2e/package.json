@@ -1,0 +1,11 @@
+{
+  "name": "@zoocards/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^4.8.0"
+  }
+}

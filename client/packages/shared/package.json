@@ -1,0 +1,11 @@
+{
+  "name": "@zoocards/shared",
+  "version": "0.1.0",
+  "private": true,
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "zoocards",
+  "private": true,
+  "workspaces": [
+    "packages/app",
+    "packages/shared",
+    "packages/e2e"
+  ],
+  "version": "1.0.0",
+  "description": "Animal cards with React and GraphQL",
+  "author": "joshy",
+  "license": "MIT"
+}
