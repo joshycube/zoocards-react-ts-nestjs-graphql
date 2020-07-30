@@ -12,7 +12,9 @@ import CardsComponent from "./component";
 export function Cards() {
   const { loading, error, data, refetch } = useQuery(ANIMAL_QUERY);
 
-  const [deleteAnimalCardMutation] = useMutation(ANIMAL_DELETE_MUTATION);
+  const [deleteAnimalCardMutation] = useMutation(ANIMAL_DELETE_MUTATION, {
+    refetchQueries: [{ query: ANIMAL_QUERY }],
+  });
 
   const deleteAnimalCard = async (_id: string) => {
     const payload = {
@@ -23,7 +25,6 @@ export function Cards() {
 
     try {
       await deleteAnimalCardMutation(payload);
-      refetch();
     } catch (error) {
       console.log(error);
     }

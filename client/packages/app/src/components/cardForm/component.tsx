@@ -70,7 +70,8 @@ function formReducer(
   let errors: Error[] = state.errors || [];
   switch (action.type) {
     case ACTIONS.nameChange:
-      if (action.payload.length < 2 || action.payload.length > 64) {
+      const name = action.payload.replace(/^\s+|\s+$/gm, "");
+      if (name.length < 2 || name.length > 64) {
         errors = [
           ...errors,
           {
@@ -118,14 +119,14 @@ function CardFormComponent({
     try {
       mountedForCreate
         ? createAnimalCard({
-            name: state.name,
+            name: state.name.replace(/^\s+|\s+$/gm, ""),
             nutrition: state.nutrition,
             classification: state.classification,
             extinct: state.extinct,
           })
         : updateAnimalCard({
             _id: state._id,
-            name: state.name,
+            name: state.name.replace(/^\s+|\s+$/gm, ""),
             nutrition: state.nutrition,
             classification: state.classification,
             extinct: state.extinct,

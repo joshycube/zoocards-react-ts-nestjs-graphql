@@ -1,4 +1,5 @@
 import React from "react";
+import { injectIntl, FormattedMessage } from "react-intl";
 
 import { Animal } from "@zoocards/shared/src/v1/types/Animals";
 import Card from "@zoocards/shared/src/v1/components/card/cardWrapper";
@@ -20,6 +21,7 @@ export interface Props {
   handleEdit: (id: string) => void;
   editSubjectId?: string;
   onDelete: (_id: string) => void;
+  intl: any;
 }
 
 export function CardsRender({
@@ -28,7 +30,12 @@ export function CardsRender({
   onCancel,
   editSubjectId,
   onDelete,
+  intl,
 }: Props) {
+  const yes = intl.formatMessage({ id: "yes" });
+  const no = intl.formatMessage({ id: "no" });
+  const extinctLabel = intl.formatMessage({ id: "extinctLabel" });
+
   return (
     <Styles.Wrapper>
       <Styles.CardWrapper>
@@ -40,14 +47,24 @@ export function CardsRender({
             <CardForm onCancel={onCancel} key={animal._id} animal={animal} />
           </Styles.CardWrapper>
         ) : (
-          <Styles.CardWrapper>
-            <Card key={animal._id}>
+          <Styles.CardWrapper key={animal._id}>
+            <Card>
               <CardHeader
                 title={animal.name}
-                subTitle={animal.extinct.toString()}
+                subTitle={
+                  animal.extinct
+                    ? `${extinctLabel}: ${yes}`
+                    : `${extinctLabel}: ${no}`
+                }
               />
               <CardContent>
+                <Typography variant="caption">
+                  <FormattedMessage id="nutritionHelper" />
+                </Typography>
                 <Typography>{animal.nutrition}</Typography>
+                <Typography variant="caption">
+                  <FormattedMessage id="classificationHelper" />
+                </Typography>
                 <Typography>{animal.classification}</Typography>
               </CardContent>
               <CardActions>
@@ -66,4 +83,4 @@ export function CardsRender({
   );
 }
 
-export default CardsRender;
+export default injectIntl(CardsRender);
