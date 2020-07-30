@@ -39,15 +39,24 @@ export function CardsRender({
   return (
     <Styles.Wrapper>
       <Styles.CardWrapper>
-        <CardForm onCancel={onCancel} mountendForCreate />
+        <CardForm
+          data-test-id="add-form-card"
+          onCancel={onCancel}
+          mountendForCreate
+        />
       </Styles.CardWrapper>
       {animals.map((animal: Animal) =>
         animal._id === editSubjectId ? (
           <Styles.CardWrapper>
-            <CardForm onCancel={onCancel} key={animal._id} animal={animal} />
+            <CardForm
+              data-test-id="edit-form-card"
+              onCancel={onCancel}
+              key={animal._id}
+              animal={animal}
+            />
           </Styles.CardWrapper>
         ) : (
-          <Styles.CardWrapper key={animal._id}>
+          <Styles.CardWrapper key={animal._id} data-test-id="item-card">
             <Card>
               <CardHeader
                 title={animal.name}
@@ -68,10 +77,16 @@ export function CardsRender({
                 <Typography>{animal.classification}</Typography>
               </CardContent>
               <CardActions>
-                <IconButton onClick={() => handleEdit(animal._id)}>
+                <IconButton
+                  testid="btn-edit"
+                  onClick={() => handleEdit(animal._id)}
+                >
                   <EditIcon />
                 </IconButton>
-                <IconButton onClick={() => onDelete(animal._id)}>
+                <IconButton
+                  testid="btn-delete"
+                  onClick={() => onDelete(animal._id)}
+                >
                   <DeleteIcon />
                 </IconButton>
               </CardActions>

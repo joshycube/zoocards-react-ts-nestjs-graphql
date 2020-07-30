@@ -10,7 +10,7 @@ import { ANIMAL_DELETE_MUTATION } from "../../graphql/mutations/animal";
 import CardsComponent from "./component";
 
 export function Cards() {
-  const { loading, error, data, refetch } = useQuery(ANIMAL_QUERY);
+  const { loading, error, data } = useQuery(ANIMAL_QUERY);
 
   const [deleteAnimalCardMutation] = useMutation(ANIMAL_DELETE_MUTATION, {
     refetchQueries: [{ query: ANIMAL_QUERY }],

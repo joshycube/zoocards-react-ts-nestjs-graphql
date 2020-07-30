@@ -62,13 +62,16 @@ function CardForm({
     animalState.errors && !animalState.errors.length && animalState.name !== "";
 
   return (
-    <Styles.Wrapper>
+    <Styles.Wrapper
+      data-test-id={mountedForCreate ? "add-form-card" : "edit-form-card"}
+    >
       <form>
         <Card>
           <CardHeader title={mountedForCreate ? addNew : edit} />
           <CardContent>
             <Styles.Field>
               <FormInput
+                data-test-id="field-name"
                 required
                 error={isErrorSet(animalState, "name")}
                 placeholder={namePlaceholder}
@@ -120,6 +123,7 @@ function CardForm({
             </Styles.Field>
             <Styles.Field>
               <CheckboxInput
+                data-test-id="field-extinct"
                 label={extinctLabel}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setAnimalState({
@@ -134,6 +138,7 @@ function CardForm({
           </CardContent>
           <CardActions>
             <Button
+              testid="btn-submit"
               disabled={!canSubmit}
               variant="contained"
               color="secondary"
@@ -143,7 +148,12 @@ function CardForm({
                 <FormattedMessage id="save" />
               </Typography>
             </Button>
-            <Button variant="contained" color="secondary" onClick={onCancel}>
+            <Button
+              testid="btn-cancel"
+              variant="contained"
+              color="secondary"
+              onClick={onCancel}
+            >
               <Typography>
                 <FormattedMessage id="cancel" />
               </Typography>

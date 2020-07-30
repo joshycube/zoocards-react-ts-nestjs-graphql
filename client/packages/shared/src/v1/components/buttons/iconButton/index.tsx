@@ -7,11 +7,12 @@ interface Props {
   children: JSX.Element;
   IconButtonProps?: Partial<IconButtonInterface>;
   onClick?: () => void;
+  testid?: string;
 }
 
-function IconButton({ children, IconButtonProps, onClick }: Props) {
+function IconButton({ children, IconButtonProps, onClick, testid }: Props) {
   return (
-    <MIconButton onClick={onClick} {...IconButtonProps}>
+    <MIconButton data-test-id={testid} onClick={onClick} {...IconButtonProps}>
       {children}
     </MIconButton>
   );
