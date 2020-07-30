@@ -1,9 +1,9 @@
 export default {
-  SEARCH_INPUT: '[data-test-id="search-input"]',
-  SEARCH_SUBMIT: '[data-test-id="search-submit"]'
-  RESULTS_WRAPPER: '[data-test-id="results-wrapper"]',
-  CHARACTERS_WRAPPER: '[data-test-id="characters-wrapper"]',
-  ERROR_WRAPPER: '[data-test-id="error-wrapper"]',
-  ADD_ITEM: '[data-test-id="add-item"]'
-  REMOVE_ITEM: '[data-test-id="remove-item"]'
+  BTN_CANCEL: '[data-test-id="btn-cancel"]',
+  BTN_SUBMIT: '[data-test-id="btn-submit"]',
+  BTN_EDIT: '[data-test-id="btn-edit"]',
+  BTN_ADD: '[data-test-id="btn-add"]',
+  FIELD_NAME: '[data-test-id="field-name"]',
+  FIELD_EXTICNT: '[data-test-id="field-extinct"]'
+  ITEM_CARD: '[data-test-id="item-card"]'
 };
