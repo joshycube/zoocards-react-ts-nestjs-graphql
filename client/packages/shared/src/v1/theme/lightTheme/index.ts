@@ -1,6 +1,7 @@
 const COLORS = {
-  ROSE_RED: "red",
-  LIGHT_BLUE: "blue",
+  LIGHT_BROWN: "#FFCC99",
+  LIGHT_BLUE: "#6EB5FF",
+  BLACK: "#16161d",
 };
 
 const SIZES = {
@@ -15,10 +16,17 @@ export default {
     medium: SIZES.MEDIUM,
     large: SIZES.LARGE,
   },
+  backgrounds: {
+    primary: COLORS.LIGHT_BROWN,
+  },
+  colors: {
+    primary: COLORS.BLACK,
+  },
   primary: {
     backgroundColor: COLORS.LIGHT_BLUE,
+    hoverColor: COLORS.LIGHT_BROWN,
   },
   secondary: {
-    backgroundColor: COLORS.ROSE_RED,
+    backgroundColor: COLORS.LIGHT_BROWN,
   },
 };
