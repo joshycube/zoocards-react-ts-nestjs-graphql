@@ -2,7 +2,7 @@ import SELECTORS from "../../support/selectors";
 
 describe("Cards CRUD functionality", () => {
   before(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:8080");
   });
 
   it("Should create an item", () => {

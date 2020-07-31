@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  database:
+    image: 'mongo:latest'
+    restart: always
+    container_name: 'zoomongo-dev'
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017:27017'

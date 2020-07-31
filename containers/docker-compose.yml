@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  database:
+    image: 'mongo:latest'
+    restart: always
+    container_name: 'zoomongo'
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017:27017'
+  node-api:
+    container_name: 'zooapi'
+    build: ./../backend
+    environment:
+      - NODE_ENV=prod
+    ports:
+      - '5000:5000'
+    depends_on:
+      - database
+    links:
+      - database
+    command: 'yarn start:prod'
+  webapp:
+    container_name: 'zooapp'
+    build: ./../client
+    ports:
+      - '8080:80'
+    depends_on:
+      - database
+      - node-api
